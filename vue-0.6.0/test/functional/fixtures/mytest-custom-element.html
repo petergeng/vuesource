@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Custom Elements</title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+        <my-element></my-element>
+        <script>
+            // global custom element with option object + replace
+            debugger;
+            Vue.config({debug:true})
+            Vue.element('my-element', {
+                replace: true,
+                className: 'test',
+                template: '<div>{{msg}}</div>'
+            })
+            new Vue({
+                el:'body',
+                scope: {
+                    msg: 'hihi',
+                }
+            })
+        </script>
+    </body>
+</html>

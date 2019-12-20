@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Nested repeat</title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="test">
+            <ul>
+                <li v-repeat="item : items" v-class="'list-' + $index">
+                    <ul>
+                        <li v-repeat="subitem : item.items" v-class="'list-' + $index">
+                            {{$parent.$index + '.' + $index + ' : ' + item.title + '<-' + subitem.title}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <script>
+            Vue.config({debug:true})
+        var items = [
+            { title: "itemstitle0", items: [{title:"subitemtitle0"}, {title:"subitemtitle1"}] }
+        ]
+        new Vue({
+            el: '#test',
+            scope: {
+                items: items
+            }
+        })
+        </script>
+    </body>
+</html>

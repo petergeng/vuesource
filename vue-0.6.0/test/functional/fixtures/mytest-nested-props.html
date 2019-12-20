@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="a">
+            <h1>a.b.c : <span v-text="a.b.c"></span></h1>
+        </div>
+        <script>
+            debugger;
+            Vue.config({debug: true})
+            var app = new Vue({
+                el:'body',
+                scope: {
+                    a : {
+                        b : {
+                            c : 'abcdefg'
+                        }
+                    },
+                }
+            })
+        </script>
+    </body>
+</html>

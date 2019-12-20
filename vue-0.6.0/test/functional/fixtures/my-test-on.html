@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Custom Elements</title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+    <div id="test">
+        <button class="button-0" v-on="click:set">on click test</button>
+        <div>{{info}}</div>
+    </div>
+        <script>
+            // global custom element with option object + replace
+            Vue.config({debug:true})
+            debugger;
+            new Vue({
+                el:'#test',
+                scope : {
+                    info : "info msg ::: ",
+                    set: function (e) {
+                        this.info = this.info + " on click ::: "
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

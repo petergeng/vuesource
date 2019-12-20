@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Custom Elements</title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+    <div id="hi" v-test>点击测试</div>
+    <div class="two"></div>
+        <script>
+            // global custom element with option object + replace
+            Vue.config({debug:true})
+            debugger;
+            new Vue({
+                el:'#hi',
+                directives: {
+                    test: function () {
+                        document.querySelector('.two').textContent = 'bind'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

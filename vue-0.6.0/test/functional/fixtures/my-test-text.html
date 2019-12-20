@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Custom Elements</title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+    <div>{{msg}}</div>
+        <script>
+            // global custom element with option object + replace
+            Vue.config({debug:true})
+            debugger;
+            new Vue({
+                el:'body',
+                scope: {
+                    msg: 'hihi',
+                }
+            })
+        </script>
+    </body>
+</html>

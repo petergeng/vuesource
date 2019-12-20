@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="test">
+            <div class="filter">{{filterMsg | nodigits}}</div>
+        </div>
+        <script>
+            Vue.config({debug:true})
+            var T = Vue.extend({
+                components: {
+                    'vm-test': Vue.extend({
+                        scope: {
+                            vmMsg: 'component works'
+                        }
+                    })
+                },
+                partials: {
+                    'partial-test': '{{partialMsg}}'
+                },
+                directives: {
+                    hola: function (value) {
+                        this.el.innerHTML = value + ' works'
+                    }
+                },
+                filters: {
+                    nodigits: function (value) {
+                        return value.replace(/\d/g, '')
+                    }
+                }
+            })
+            new T({
+                el: '#test',
+                scope: {
+                    filterMsg: 'fi43l132ter5 w12345orks'
+                }
+            })
+        </script>
+    </body>
+</html>
