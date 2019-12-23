@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Nested repeat</title>
+        <meta charset="utf-8">
+        <script src="../../../dist/vue.js"></script>
+    </head>
+    <body>
+    <div id="test">
+        <ul v-repeat="items">
+            <li>
+                {{title}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config({debug:true})
+        var items = [
+            { title: 'title0' },
+            { title: 'title1' }
+        ]
+        var app = new Vue({
+            el: '#test',
+            data: {
+                items: items
+            }
+        })
+    </script>
+    </body>
+</html>

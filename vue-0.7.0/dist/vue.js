@@ -803,7 +803,7 @@ var Emitter     = require('./emitter'),
  *  scans a DOM node and compile bindings for a ViewModel
  */
 function Compiler (vm, options) {
-
+debugger;
     var compiler = this
     // indicate that we are intiating this instance
     // so we should not run any transitions
@@ -995,7 +995,7 @@ CompilerProto.setupObserver = function () {
  *  Compile a DOM node (recursive)
  */
 CompilerProto.compile = function (node, root) {
-
+debugger;
     var compiler = this,
         nodeType = node.nodeType,
         tagName  = node.tagName
