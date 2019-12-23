@@ -1,0 +1,11 @@
+﻿node_modules
+*.zip
+.idea
+.vscode
+.DS_Store
+dist
+package-lock.json
+release-builds
+npm-debug.log
+yarn-error.log
+yarn.lock
