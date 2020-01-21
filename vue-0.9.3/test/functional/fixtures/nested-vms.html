@@ -1,0 +1,68 @@
+<style type="text/css">
+    man, offspring {
+        display: block;
+        padding-left: 15px;
+    }
+    p {
+        position: relative;
+    }
+    p:not(.ancestor):before {
+        position: absolute;
+        top: 0;
+        left: -22px;
+        content: "└ ";
+        color: #F00;
+    }
+</style>
+
+<meta charset="utf8">
+<div id="grandpa" name="Andy">
+    <p class="ancestor">{{name}} {{family}}</p>
+
+    <man name="Jack">
+        <p class="jack">{{name}}, son of {{$parent.name}}</p>
+
+        <man name="Mike">
+            <p class="mike">{{name}}, son of {{$parent.name}}</p>
+
+            <offspring name="Tim" class="tim"></offspring>
+
+            <offspring name="Tom" class="tom"></offspring>
+        </man>
+
+        <man name="Jason">
+            <p class="jason">{{name}}, son of {{$parent.name}}</p>
+
+            <offspring name="Andrew" class="andrew"></offspring>
+        </man>
+    </man>
+</div>
+
+<script type="text/x-template" id="offspring-template">
+    <p>{{name}}, son of {{$parent.name}}, grandson of {{$parent.$parent.name}}, great-grandson of {{$root.name}}, and offspring of family {{family}}.</p>
+</script>
+
+<script src="../../../dist/vue.js"></script>
+<script>
+    //Vue.config({ debug: true })
+
+    var Man = Vue.extend({
+        paramAttributes: ['name']
+    })
+
+    var Offspring = Man.extend({
+        template: '#offspring-template'
+    })
+
+    Vue
+        .component('man', Man)
+        .component('offspring', Offspring)
+
+    new Man({
+        el: '#grandpa',
+        data: {
+            family: 'Johnson'
+        }
+    })
+    
+</script>

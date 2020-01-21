@@ -1,0 +1,16 @@
+"with(this){
+    return (filteredData.length)?
+    _h('table',
+        [_h('thead',
+            [_h('tr',
+                [_l((columns),function(key)
+                    {return _h('th',
+                        {class:{ active: sortKey == key },
+                        on:{"click ":function($event){sortBy(key)}}},
+                        ["\n "+_s(_f("capitalize ")(key))+"\n ",_h('span',{staticClass:"arrow ",
+                            class:sortOrders[key] > 0 ? 'asc' : 'dsc'})])})])]),"
+",_h('tbody',[_l((filteredData),function(entry){return _h('tr',[_l((columns),function(key){return _h('td',["\
+n "+_s(entry[key])+"\
+n "])})])})])]):_h('p',["
+No matches found.
+"])}"

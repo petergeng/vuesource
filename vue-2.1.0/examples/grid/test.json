@@ -1,0 +1,34 @@
+_h('div', {
+    attrs: {
+        "id": "demo"
+    }
+}, [_h('form', {
+    attrs: {
+        "id": "search"
+    }
+}, ["\n        Search ", _h('input', {
+    directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: (searchQuery),
+        expression: "searchQuery"
+    }],
+    attrs: {
+        "name": "query"
+    },
+    domProps: {
+        "value": _s(searchQuery)
+    },
+    on: {
+        "input": function($event) {
+            if ($event.target.composing) return;
+            searchQuery = $event.target.value
+        }
+    }
+})]), " ", _h('demo-grid', {
+    attrs: {
+        "data": gridData,
+        "columns": gridColumns,
+        "filter-key": searchQuery
+    }
+})])
